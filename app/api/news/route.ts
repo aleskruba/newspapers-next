@@ -53,7 +53,7 @@ export const  GET = async (req: NextRequest ) => {
         const translatedTextES = responseTranslatedES.data.data.translatedText
       console.log(translatedTextES) */
       for (const newspaper of newspapers) {
-        console.log(newspaper)
+ 
         const response = await axios.get(newspaper.address);
         const html = await response.data;
         const $ = cheerio.load(html);
@@ -67,7 +67,7 @@ export const  GET = async (req: NextRequest ) => {
               const title = titleText.replace(/\s+/g, ' ').trim();
               const url = $(this).attr('href');
               const articleIdentifier = `${title}_${newspaper.address}`;
-              console.log(articleIdentifier);
+            
               if (!uniqueArticles.has(articleIdentifier)) {
                 uniqueArticles.add(articleIdentifier);
   

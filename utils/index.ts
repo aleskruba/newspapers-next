@@ -1,3 +1,5 @@
+"use client"
+
 import { FilterProps } from "@/types"
 
 export async function fetchNews(filters:FilterProps) {
@@ -5,7 +7,17 @@ export async function fetchNews(filters:FilterProps) {
     const {keyword,newspapers,page} = filters
 
 
-    
+    if (newspapers && newspapers !== "all newspapers") { 
+        const response = await fetch(`/api/news/${newspapers}?keyword=${keyword}&page=${page}`)
+        //console.log(response)  
+        const data = await response.json()
+        return data.message
+    } else { 
+        const response = await fetch(`/api/news?keyword=${keyword}&page=${page}`)
+     //  console.log(response)
+       const data = await response.json()
+       return data.message
+        }
     
 /*     if (newspapers && newspapers !== "all newspapers") { 
     const response = await fetch(`http://localhost:3000/api/news/${newspapers}?keyword=${keyword}&page=${page}`)
@@ -16,20 +28,10 @@ export async function fetchNews(filters:FilterProps) {
     const response = await fetch(`http://localhost:3000/api/news?keyword=${keyword}&page=${page}`)
     const data = await response.json()
     return data.message
-    }
- */
+    } */
 
-    if (newspapers && newspapers !== "all newspapers") { 
-        const response = await fetch(`https://newspapers-next-kfqhgg1wu-aleskruba.vercel.app/api/news/${newspapers}?keyword=${keyword}&page=${page}`)
-        const data = await response.json()
-        return data.message
-        
-    } else { 
-        const response = await fetch(`https://newspapers-next-kfqhgg1wu-aleskruba.vercel.app/api/news?keyword=${keyword}&page=${page}`)
-        const data = await response.json()
-        return data.message
-        }
-    
+
+
 
 }
 
