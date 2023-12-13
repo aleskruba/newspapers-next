@@ -7,7 +7,7 @@ import React,{ Suspense, useState,useRef } from "react"
 import Image from "next/image"
 import { fetchNews } from "@/utils"
 import FetchedData from "./FetchedData"
-import ThreeDotsWave from './LoadingFramer'
+
 
 
 type DivRef = HTMLDivElement | null;
@@ -144,8 +144,7 @@ type DivRef = HTMLDivElement | null;
       
          {loading ?
           <>
-          <ThreeDotsWave/>
-       {/*    <Image src="/wait.svg" alt="hero" fill className="object-contain" />  */}
+         <Image src="/wait.svg" alt="hero" fill className="object-contain" />  *
   
           </>
   
