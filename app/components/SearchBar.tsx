@@ -60,7 +60,7 @@ type DivRef = HTMLDivElement | null;
              }
             }
           } else {
-            console.log('Error: Missing required parameters');
+            console.log('Missing required parameters');
           }
         } catch (error) {
           console.error('Error occurred during manual search:', error);

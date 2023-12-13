@@ -7,7 +7,7 @@ export async function fetchNews(filters:FilterProps) {
 
     
     
-    if (newspapers && newspapers !== "all newspapers") { 
+/*     if (newspapers && newspapers !== "all newspapers") { 
     const response = await fetch(`http://localhost:3000/api/news/${newspapers}?keyword=${keyword}&page=${page}`)
     const data = await response.json()
     return data.message
@@ -17,6 +17,19 @@ export async function fetchNews(filters:FilterProps) {
     const data = await response.json()
     return data.message
     }
+ */
+
+    if (newspapers && newspapers !== "all newspapers") { 
+        const response = await fetch(`https://newspapers-next-kfqhgg1wu-aleskruba.vercel.app/api/news/${newspapers}?keyword=${keyword}&page=${page}`)
+        const data = await response.json()
+        return data.message
+        
+    } else { 
+        const response = await fetch(`https://newspapers-next-kfqhgg1wu-aleskruba.vercel.app/api/news?keyword=${keyword}&page=${page}`)
+        const data = await response.json()
+        return data.message
+        }
+    
 
 }
 

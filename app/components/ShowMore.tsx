@@ -20,7 +20,7 @@ function ShowMore({ currentPage,setCurrentPage, isNext,setScroll,scroll,scrollTo
    
         router.push(newPathname, { scroll: false });
 
-        console.log('currentPage',currentPage)
+   
         scrollToNextData()
       };
 

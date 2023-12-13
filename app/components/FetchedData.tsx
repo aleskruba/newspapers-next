@@ -35,14 +35,13 @@ interface Newspaper {
     const scrollableRef = useRef<HTMLDivElement>(null);
     const [scroll,setScroll] = useState(false)
 
-    console.log(errorNewspaper)
-    allNewspapers&& console.log(allNewspapers)
+
 
     const isDataEmpty = !Array.isArray(allNewspapers) || allNewspapers.length < 1 || !allNewspapers 
 
    
     const indexOfLastItem = currentPage * parseInt(page);
-    console.log('indexOfLastItem',indexOfLastItem)
+
     const currentNewspapers = allNewspapers.slice(0, indexOfLastItem);
   
     const isNext = indexOfLastItem < allNewspapers.length;
